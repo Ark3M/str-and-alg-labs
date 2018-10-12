@@ -23,7 +23,8 @@ using namespace std;
 } */
 
 
- /* int input(int a[], int &n){
+
+ /* int input(int a[], int &n){  //function of input operation
 
 	int n = 0;
 
@@ -45,7 +46,8 @@ using namespace std;
 } */
 
 
-/* int output(int a[], int n){
+
+/* int output(int a[], int n){  //function of output operation
 
 	int n;
 	
@@ -59,7 +61,7 @@ using namespace std;
 
 int main(){
 
-	/* int p;
+	/*int p;
 	
 	do{
 		cout << "1. Input array" << endl;
@@ -84,29 +86,52 @@ int main(){
 				return 0;
 		}
 	} */
-
+	
+	
 	int n = 0;
 
 	cout << "Enter array size:" << endl;
 	cin >> n;
 
-	if(n <= 100){
+    	if(n <= 100){
+
         	int *arr = new int[n];
-		
-		cout << "Enter your array:" << endl;
+
+        	cout << "Enter your array:" << endl;
         	for (int i = 0; i < n; i++){
             		cin >> arr[i];
         	}
 
-		cout << "Your array is:" << endl;	
+
+        	int minIndex;
+        	int min = arr[0];
+        	for(int i = 0; i < n; i++){
+            		if(arr[i] < min){
+                		min = arr[i];
+                		minIndex = i;
+            		}
+        	}
+
+
+        	cout << "Your array is:" << endl;
         	for (int i = 0; i < n; i++){
             		cout << arr[i] << endl;
         	}
+
+
+        	cout << "Least element in array:" << endl;
+        	cout << min << endl;
+
+        	cout << "Number of least element in array:" << endl;
+        	cout << minIndex << endl;
+
+
         	delete [] arr;
     	}
     	else{
         	return 0;
     	}
+	
 }
 
 
