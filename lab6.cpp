@@ -91,22 +91,22 @@ int main(){
 	cin >> n;
 
 	if(n <= 100){
-        int *arr = new int[n];
+        	int *arr = new int[n];
 		
-	cout << "Enter your array:" << endl;
-        for (int i = 0; i < n; i++){
-            cin >> arr[i];
-        }
+		cout << "Enter your array:" << endl;
+        	for (int i = 0; i < n; i++){
+            		cin >> arr[i];
+        	}
 
-	cout << "Your array is:" << endl;	
-        for (int i = 0; i < n; i++){
-            cout << arr[i] << endl;
-        }
-        delete [] arr;
-    }
-    else{
-        return 0;
-    }
+		cout << "Your array is:" << endl;	
+        	for (int i = 0; i < n; i++){
+            		cout << arr[i] << endl;
+        	}
+        	delete [] arr;
+    	}
+    	else{
+        	return 0;
+    	}
 }
 
 
