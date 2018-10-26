@@ -3,135 +3,144 @@
 
 using namespace std;
 
-/* string rus(char s[]){
 
-	string t;
-	t = s;
-	int i = 0;
-
-	while(s[i] != 0){
-		if(s[i] >= 'А' && s[i] <= 'п') t[i] -= 64;
-
-		if(s[i] >= 'р' && s[i] <= 'я') t[i] -= 16;
-
-        if(s[i] == 'Ё') t[i] = 240;
-
-        if(s[i] == 'ё') t[i] = 241;
-
-		i++;}
-	return t;
-} */
-
-
-
- /* int input(int a[], int &n){  //function of input operation
-
-	int n = 0;
-
-	cout << "Enter array size:" << endl;
-	cin >> n >> endl;
-
-	if(n <= 100){
-		int *arr = new int[n];
-
-		for (int i = 0; i < n; i++){
-			cin >> arr[i] >> endl;
-		}
-
-		for (int i = 0; i < n; i++){
-			cout << arr[i] << endl;
-		}
-		delete [] arr;
-	}
-} */
-
-
-
-/* int output(int a[], int n){  //function of output operation
-
-	int n;
+int input(int arr[], int n){
 	
-	for(int i = 0; i < n; i++){
-		cout << a[i];	
+	int i;
+	
+	if(n <= 100){
+		
+		for (int i = 0; i < n; i++){
+        	cin >> arr[i];
+    	}
 	}
-	cout << endl;
-} */
+	else{
+		return 0;
+	}
+	return arr[i];
+}
 
 
+int output(int arr[], int n){
+	
+	int i;
+	
+	for (int i = 0; i < n; i++){
+        cout << arr[i] << endl;
+    }
+    return arr[i];
+}
+
+
+int search(int arr[], int n){
+
+    int minIndex;
+    int min = arr[0];
+    for(int i = 0; i < n; i++){
+        if(arr[i] <= min){
+            min = arr[i];
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+
+
+/* 
+int add(int arr[], int n){
+
+    int i, x;
+    int neg = arr[i];
+    if(neg < 0){
+        for(int i = 0; i < n; i++){
+            arr[i+1] = arr[i];
+            arr[neg] = x;
+        }
+    }
+    return x;
+} 
+*/
 
 int main(){
-
-	/*int p;
+	
+	int n = 0;
+	// int x = 0; //
+	int p;
+	int i;
+	int *arr = new int[n];
 	
 	do{
 		cout << "1. Input array" << endl;
 		cout << "2. Output array" << endl;
-		cout << "3. Shut down" << endl;
+		cout << "3. Search number of the last minimal element in array" << endl;
+		cout << "4. Shut down" << endl;
 		cout << "Specify the menu item:" << endl;
-
+		
 		cin >> p >> endl;
-
+		
 		switch(p){
-
+			
 			case 1: 
-				input(a, n);
+				input(arr, n);
 			break;
-
+			
 			case 2: 
 				cout << "Array:" << endl;
-				output(a, n);
+				output(arr, n);
 			break;
-
-			case 3: 
+			
+			case 3:
+				cout << "Number of the last minimal element in array:" << endl;
+				search(arr, n);
+			break;
+			
+			case 4: 
 				return 0;
+			break;
 		}
-	} */
-	
-	
-	int n = 0;
-
+	} 
+    
+	/*
 	cout << "Enter array size:" << endl;
 	cin >> n;
 
-    	if(n <= 100){
+	cout << "Enter number <x>" << endl;
+	cin >> x;
+	*/
 
-        	int *arr = new int[n];
+	/*
+    if(n <= 100){
 
-        	cout << "Enter your array:" << endl;
-        	for (int i = 0; i < n; i++){
-            		cin >> arr[i];
-        	}
+        int *arr = new int[n];
 
-
-        	int minIndex;
-        	int min = arr[0];
-        	for(int i = 0; i < n; i++){
-            		if(arr[i] < min){
-                		min = arr[i];
-                		minIndex = i;
-            		}
-        	}
+         
+		cout << "Enter your array:" << endl;
+        for (int i = 0; i < n; i++){
+            cin >> arr[i];
+        }
 
 
-        	cout << "Your array is:" << endl;
-        	for (int i = 0; i < n; i++){
-            		cout << arr[i] << endl;
-        	}
+        search(arr, n);
+        // add(arr, n); //
 
 
-        	cout << "Least element in array:" << endl;
-        	cout << min << endl;
+        cout << "Your array is:" << endl;
+        for (int i = 0; i < n; i++){
+            cout << arr[i] << endl;
+        }
 
-        	cout << "Number of least element in array:" << endl;
-        	cout << minIndex << endl;
+
+        cout << "Number of least element in array:" << endl;
+        cout << search(arr, n) << endl; 
+		
 
 
-        	delete [] arr;
-    	}
-    	else{
-        	return 0;
-    	}
-	
+        delete [] arr;
+    }
+    else{
+        return 0;
+    }
+    */
+    delete [] arr;
 }
-
 
