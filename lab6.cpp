@@ -1,15 +1,15 @@
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 
-int input(int arr[], int n){
-	
-	int i;
+int *input(int arr[], int n){
 	
 	if(n <= 100){
 		
+		cout << "Enter your array:" << endl;
 		for (int i = 0; i < n; i++){
         	cin >> arr[i];
     	}
@@ -17,18 +17,16 @@ int input(int arr[], int n){
 	else{
 		return 0;
 	}
-	return arr[i];
+	return arr;
 }
 
 
-int output(int arr[], int n){
-	
-	int i;
+int *output(int arr[], int n){
 	
 	for (int i = 0; i < n; i++){
         cout << arr[i] << endl;
     }
-    return arr[i];
+    return arr;
 }
 
 
@@ -48,7 +46,6 @@ int search(int arr[], int n){
 
 /* 
 int add(int arr[], int n){
-
     int i, x;
     int neg = arr[i];
     if(neg < 0){
@@ -69,6 +66,9 @@ int main(){
 	int i;
 	int *arr = new int[n];
 	
+	cout << "Enter size of your array" << endl;
+	cin >> n;
+	
 	do{
 		cout << "1. Input array" << endl;
 		cout << "2. Output array" << endl;
@@ -76,7 +76,7 @@ int main(){
 		cout << "4. Shut down" << endl;
 		cout << "Specify the menu item:" << endl;
 		
-		cin >> p >> endl;
+		cin >> p;
 		
 		switch(p){
 			
@@ -90,51 +90,40 @@ int main(){
 			break;
 			
 			case 3:
-				cout << "Number of the last minimal element in array:" << endl;
-				search(arr, n);
+				cout << "Number of the last minimal element in array:" << search(arr, n) << endl;
 			break;
 			
 			case 4: 
 				return 0;
 			break;
 		}
-	} 
+	}
+	while(true);
     
 	/*
 	cout << "Enter array size:" << endl;
 	cin >> n;
-
 	cout << "Enter number <x>" << endl;
 	cin >> x;
 	*/
 
 	/*
     if(n <= 100){
-
         int *arr = new int[n];
-
          
 		cout << "Enter your array:" << endl;
         for (int i = 0; i < n; i++){
             cin >> arr[i];
         }
-
-
         search(arr, n);
         // add(arr, n); //
-
-
         cout << "Your array is:" << endl;
         for (int i = 0; i < n; i++){
             cout << arr[i] << endl;
         }
-
-
         cout << "Number of least element in array:" << endl;
         cout << search(arr, n) << endl; 
 		
-
-
         delete [] arr;
     }
     else{
@@ -143,4 +132,3 @@ int main(){
     */
     delete [] arr;
 }
-
