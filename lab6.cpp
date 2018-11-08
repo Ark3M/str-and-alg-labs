@@ -43,24 +43,52 @@ int search(int arr[], int n){
 }
 
 
-/* 
-int add(int arr[], int n){
-    int i, x;
-    int neg = arr[i];
-    if(neg < 0){
-        for(int i = 0; i < n; i++){
-            arr[i+1] = arr[i];
-            arr[neg] = x;
-        }
-    }
-    return x;
+
+int *add(int arr[], int n){
+	
+    int i;
+    int j = 0;
+	int x;
+	
+	int b[2*n]; 
+	 
+	cout << "Enter the number 'x': " << endl;
+	cin >> x;	 
+
+	for(int i = 0; i < n; i++) { 
+		b[j] = arr[i]; 
+		j += 1; 
+		if(arr[i] < 0) { 
+			b[j] = x; 
+			j += 1; 
+		}	 
+	} 
+	
+	cout << "Original array: " << endl;
+
+	for(int i = 0; i < n; i++) { 
+		cout << arr[i] << " "; 
+	} 
+	
+	cout << endl;
+	
+	cout << "Modified array: " << endl;
+
+	for(int i = 0; i < j; i++) { 
+		cout << b[i] << " ";
+	} 
+	
+	cout << endl; 
+        
+	
+	return b;
 } 
-*/
+
 
 int main(){
 	
+	
 	int n = 0;
-	// int x = 0; //
 	int p;
 	int i;
 	int *arr = new int[n];
@@ -72,7 +100,8 @@ int main(){
 		cout << "1. Input array" << endl;
 		cout << "2. Output array" << endl;
 		cout << "3. Search number of the last minimal element in array" << endl;
-		cout << "4. Shut down" << endl;
+		cout << "4. Adding the number 'x' after every negative element" << endl;
+		cout << "5. Shut down" << endl;
 		cout << "Specify the menu item:" << endl;
 		
 		cin >> p;
@@ -92,42 +121,16 @@ int main(){
 				cout << "Number of the last minimal element in array:" << search(arr, n) << endl;
 			break;
 			
-			case 4: 
+			case 4:
+				cout << add(arr, n) << endl;
+			break;
+			
+			case 5: 
 				return 0;
 			break;
 		}
 	}
 	while(true);
     
-	/*
-	cout << "Enter array size:" << endl;
-	cin >> n;
-	cout << "Enter number <x>" << endl;
-	cin >> x;
-	*/
-
-	/*
-    if(n <= 100){
-        int *arr = new int[n];
-         
-		cout << "Enter your array:" << endl;
-        for (int i = 0; i < n; i++){
-            cin >> arr[i];
-        }
-        search(arr, n);
-        // add(arr, n); //
-        cout << "Your array is:" << endl;
-        for (int i = 0; i < n; i++){
-            cout << arr[i] << endl;
-        }
-        cout << "Number of least element in array:" << endl;
-        cout << search(arr, n) << endl; 
-		
-        delete [] arr;
-    }
-    else{
-        return 0;
-    }
-    */
     delete [] arr;
 }
