@@ -4,42 +4,55 @@
 
 using namespace std; 
 
-template <typename T1>
-T1 filling(vector <vector <T1>> &arr, T1 n, T1 m) 
+template <typename T1, typename T2>
+T2 filling(vector <vector <T2> > &arr, T1 n, T1 m) 
 { 
-	T1 num;
+	T2 num;
 	cout << "Enter your matrix: " << endl;
 	for (T1 i = 0; i < n; i ++ ) 
 	{ 
-		arr.push_back(vector<T1>());
+		arr.push_back(vector<T2>());
 		for ( T1 j = 0; j < m ; j ++ ) 
 		{
-			/*cin >> num;
-			arr[i].push_back(num);*/ ???
+			cin >> num;
+			arr[i].push_back(num);
 		} 
 	} 
 } 
 
-/*void filling(vector <vector <char>> &arr, int n, int m) 
-{ 
-	for (int i = 0; i < n ; i ++ ) 
-	{ 
-		arr.push_back(vector<char>()); 
-		for ( int j = 0; j < m ; j++ ) 
-		{ 
-			arr[i].push_back(97+rand()%3);//25 
-		} 
-	} 
-} */
+template <typename T1, typename T2>
+T1 sort(vector <vector <T1> > &arr, T1 a, T2 n, T2 m)
+{
+			
+			T1 null;
+			int ii = 0; 
+			int jj = 0; 
+			for ( int i = 0 ; i < n ; i ++ ) 
+			{ 
+				for ( int j = 0 ; j < m ; j ++ ) 
+					if ( arr[i][j] == a ) 
+					{ 
+						null = arr[i][j]; 
+						arr[i][j] = arr[ii][jj]; 
+						arr[ii][jj] = null; 
+						ii ++; 
+						if ( ii == n ) 
+						{ 
+							ii = 0; 
+							jj++; 
+						} 
+					} 
+			}
+}
 
-template <typename T2>
-T2 display(vector <vector <T2>> arr, T2 n, T2 m) 
+template <typename T1, typename T2>
+T2 display(vector <vector <T2> > arr, T1 n, T1 m) 
 { 
 	cout << "Your metrix: " << endl;
-	for ( T2 i = 0 ; i < n ; i ++ ) 
+	for ( T1 i = 0 ; i < n ; i ++ ) 
 	{ 
 		cout << "\n"; 
-		for ( T2 j = 0 ; j < m ; j ++ ) 
+		for ( T1 j = 0 ; j < m ; j ++ ) 
 			cout << arr[i][j] << " "; 
 	} 
 } 
@@ -61,69 +74,46 @@ int main()
 	cin >> n; 
 	cout << "Write number of columns\n"; 
 	cin >> m; 
-	cout << " 1 - matrix of numbers\n 2 - matrix of strings\n"; 
+	cout << " 1 - matrix of numbers\n 2 - matrix of strings\n 3 - matrix of float\n"; 
 	cin >> key; 
 	switch (key) 
 	{ 
 		case 1: 
 		{ 
 			int a; 
-			vector <vector <int>> arr; 
+			vector <vector <int> > arr; 
 			filling(arr,n,m); 
 			display(arr,n,m); 
 			cout << "Write symbol: "; 
 			cin >> a; 
-			int null,ii = 0; 
-			int jj = 0; 
-			for ( int i = 0 ; i < n ; i ++ ) 
-			{ 
-				for ( int j = 0 ; j < m ; j ++ ) 
-					if ( arr[i][j] == a ) 
-					{ 
-						null = arr[i][j]; 
-						arr[i][j] = arr[ii][jj]; 
-						arr[ii][jj] = null; 
-						ii ++; 
-						if ( ii == n ) 
-						{ 
-							ii = 0; 
-							jj++; 
-						} 
-					} 
-			}
+			sort(arr, a, n, m);
 			display(arr,n,m); 
 		break; 
 		} 
-		/*case 2: 
+		case 2: 
 		{ 
 			char a; 
-			vector <vector <char>> arr; 
+			vector <vector <char> > arr; 
 			filling(arr,n,m); 
 			display(arr,n,m); 
 			cout << "Write symbol: "; 
 			cin >> a; 
-			int ii = 0; 
-			char null; 
-			int jj = 0; 
-			for ( int i = 0 ; i < n ; i ++ ) 
-			{ 
-				for ( int j = 0 ; j < m ; j ++ ) 
-					if ( arr[i][j] == a ) 
-					{	 
-						null = arr[i][j]; 
-						arr[i][j] = arr[ii][jj]; 
-						arr[ii][jj] = null; 
-						ii ++; 
-						if ( ii == n ) 
-						{ 
-							ii = 0; 
-							jj++; 
-						} 
-					} 
-			} 
+			sort(arr, a, n, m);
 			display(arr,n,m); 
 		break; 
-		}*/ 
+		}
+		case 3: 
+		{ 
+			float a; 
+			vector <vector <float> > arr; 
+			filling(arr,n,m); 
+			display(arr,n,m); 
+			cout << "Write symbol: "; 
+			cin >> a; 
+			sort(arr, a, n, m);
+			display(arr,n,m); 
+		break; 
+		}
 		default: 
 		{ 
 			cout << "try again\n"; 
